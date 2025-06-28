@@ -6,9 +6,9 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 @Entity
 @Table(name = "TASKS")
 @Access(AccessType.FIELD)
