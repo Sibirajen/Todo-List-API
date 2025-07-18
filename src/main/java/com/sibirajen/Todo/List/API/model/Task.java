@@ -10,12 +10,12 @@ import lombok.*;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @Entity
-@Table(name = "TASKS")
+@Table(name = "tasks")
 @Access(AccessType.FIELD)
 public class Task extends BaseEntity{
-    @Column(name = "TITLE", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "DESCRIPTION", length = 1000)
+    @Column(name = "description", length = 1000)
     private String description;
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString(callSuper = true, exclude = "password")
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Access(AccessType.FIELD)
 public class User extends BaseEntity implements UserDetails {
     @Column(name = "name", nullable = false, length = 100)
