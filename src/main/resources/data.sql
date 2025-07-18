@@ -1,5 +1,5 @@
 -- Insert Users
-INSERT INTO user (id, name, email, password, role) VALUES
+INSERT INTO users (id, name, email, password, role) VALUES
 (1, 'Sibirajen', 'sibirajen16@gmail.com', '$2a$12$Hl6rZJwqbi0pgDuFhNq8TeocGPQf8tKsak9LtYxJX.h/yCYtYrada', 'user');
 
 -- Insert Tasks
