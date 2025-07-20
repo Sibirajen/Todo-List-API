@@ -66,7 +66,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> methodArgumentNotValidException(MethodArgumentNotValidException ex, HttpServletRequest request){
 
         StringBuilder validationErrors = new StringBuilder();
-        System.out.println(ex);
         ex.getBindingResult().getFieldErrors().forEach(error -> {
             validationErrors
                     .append(error.getField())
