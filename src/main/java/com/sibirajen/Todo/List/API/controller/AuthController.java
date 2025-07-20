@@ -1,6 +1,7 @@
 package com.sibirajen.Todo.List.API.controller;
 
 import com.sibirajen.Todo.List.API.dto.LoginRequest;
+import com.sibirajen.Todo.List.API.enums.Role;
 import com.sibirajen.Todo.List.API.service.AuthService;
 import com.sibirajen.Todo.List.API.dto.RegisterRequest;
 import com.sibirajen.Todo.List.API.dto.Token;
@@ -23,6 +24,7 @@ public class AuthController {
     public ResponseEntity<Token> register(
             @Valid @RequestBody RegisterRequest registerRequest
             ){
+        registerRequest.setRole(Role.user);
         Token token = authService.register(registerRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(token);
     }
