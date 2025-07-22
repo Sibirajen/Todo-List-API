@@ -2,8 +2,10 @@ package com.sibirajen.Todo.List.API.controller;
 
 import com.sibirajen.Todo.List.API.dto.TaskRequest;
 import com.sibirajen.Todo.List.API.dto.TaskResponse;
+import com.sibirajen.Todo.List.API.dto.TaskListResponse;
 import com.sibirajen.Todo.List.API.service.TaskService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,5 +40,14 @@ public class TaskController {
     ){
         this.taskService.deleteTask(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/todos")
+    public ResponseEntity<TaskListResponse> getTask(
+            @RequestParam(required = false, defaultValue = "1") @Min(1) int page,
+            @RequestParam(required = false, defaultValue = "10") @Min(1) int limit
+    ){
+        TaskListResponse taskListResponse = this.taskService.getTasks(page, limit);
+        return ResponseEntity.ok(taskListResponse);
     }
 }
